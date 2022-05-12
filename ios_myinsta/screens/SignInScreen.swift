@@ -21,7 +21,7 @@ struct SignInScreen: View {
                     Spacer()
                     
                     Text("Instagram").foregroundColor(.white)
-                        .font(.system(size: 35))
+                        .font(Font.custom("Billabong",size: 45))
                     
                     ZStack(alignment: .leading){
                         if email.isEmpty{
