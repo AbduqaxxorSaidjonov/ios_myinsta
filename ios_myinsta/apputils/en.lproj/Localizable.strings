@@ -9,3 +9,7 @@
 "dont_have_account" = "Don't have an account?";
 "already_have_account" = "Already have an account?";
 "caption" = "Caption";
+"upload" = "Upload";
+"action" = "Actions";
+"pick_photo" = "Pick Photo";
+"take_photo" = "Take Photo";

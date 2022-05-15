@@ -17,17 +17,17 @@ struct HomeUploadScreen: View {
     @State var caption = ""
     
     var actionSheet: ActionSheet{
-        let title = "Actions"
         
-        return ActionSheet(title: Text(title), buttons: [
-            .default(Text("Pick Photo"), action: {
+        return ActionSheet(title: Text("action"), buttons: [
+            .default(Text("pick_photo"), action: {
                 self.sourceType = .photoLibrary
                 self.isImagePickerDisplay.toggle()
             }),
-            .default(Text("Take Photo"), action: {
+            .default(Text("take_photo"), action: {
                 self.sourceType = .camera
                 self.isImagePickerDisplay.toggle()
-            })
+            }),
+            .cancel(Text("Cancel"))
         ])
     }
     
@@ -96,7 +96,7 @@ struct HomeUploadScreen: View {
                     Spacer()
                 }
             }
-            .navigationBarTitle("Upload",displayMode: .inline)
+            .navigationBarTitle("upload",displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 self.tabSelection = 0
             }, label: {
