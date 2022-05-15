@@ -18,10 +18,9 @@ struct SignUpScreen: View {
   
     var body: some View {
         NavigationView{
-            
             ZStack{
                 LinearGradient(gradient: Gradient(colors: [Utils.color1, Utils.color2]), startPoint: .top, endPoint: .bottom)
-                
+
                 VStack(spacing: 10){
                     Spacer()
                     Text("app_name").foregroundColor(.white)
@@ -97,7 +96,7 @@ struct SignUpScreen: View {
                         })
                     }
                     .frame(maxWidth: .infinity,maxHeight: 70)
-                }
+              }
                 .padding(10)
             }
             .edgesIgnoringSafeArea(.all)

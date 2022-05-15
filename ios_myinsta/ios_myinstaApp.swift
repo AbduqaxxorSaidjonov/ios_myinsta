@@ -15,6 +15,7 @@ struct ios_myinstaApp: App {
         WindowGroup {
         StarterScreen()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(SessionStore())
         }
     }
 }

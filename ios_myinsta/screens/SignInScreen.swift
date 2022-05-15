@@ -25,7 +25,7 @@ struct SignInScreen: View {
                     
                     ZStack(alignment: .leading){
                         if email.isEmpty{
-                        Text("Email").foregroundColor(.white)
+                            Text("Email").foregroundColor(.white.opacity(0.6))
                         }
                         TextField("",text: $email)
                     }
@@ -37,7 +37,7 @@ struct SignInScreen: View {
                     
                     ZStack(alignment: .leading){
                         if password.isEmpty{
-                        Text("Password").foregroundColor(.white)
+                            Text("Password").foregroundColor(.white.opacity(0.6))
                         }
                         SecureField("",text: $password)
                     }
@@ -67,9 +67,10 @@ struct SignInScreen: View {
                     .frame(maxWidth: .infinity,maxHeight: 60)
                 }
                 .padding()
-            }
+    }
             .edgesIgnoringSafeArea(.all)
         }
+        
     }
 }
 
