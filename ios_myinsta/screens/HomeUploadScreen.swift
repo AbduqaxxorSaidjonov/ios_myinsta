@@ -27,7 +27,7 @@ struct HomeUploadScreen: View {
                 self.sourceType = .camera
                 self.isImagePickerDisplay.toggle()
             }),
-            .cancel(Text("Cancel"))
+            .cancel(Text("cancel"))
         ])
     }
     

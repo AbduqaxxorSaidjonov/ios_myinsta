@@ -42,7 +42,7 @@ struct HomeScreen: View {
         }
         .accentColor(Utils.color2)
         .onAppear{
-            UITabBar.appearance().barTintColor = .blue
+            UITabBar.appearance().barTintColor = .white
         }
     }
 }

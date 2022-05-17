@@ -13,3 +13,5 @@
 "action" = "Actions";
 "pick_photo" = "Pick Photo";
 "take_photo" = "Take Photo";
+"cancel" = "Cancel";
+"likes" = "Likes";

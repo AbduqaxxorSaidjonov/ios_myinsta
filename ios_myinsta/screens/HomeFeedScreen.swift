@@ -10,10 +10,17 @@ import SwiftUI
 struct HomeFeedScreen: View {
     
     @Binding var tabSelection: Int
+    @ObservedObject var viewModel = FeedViewModel()
+    
     var body: some View {
         NavigationView{
             ZStack{
-                Text("Hello, Feed")
+                List{
+                    ForEach(viewModel.items, id: \.self){item in
+                        PostCell(post: item).listRowInsets(EdgeInsets())
+                    }
+                }
+                .listStyle(PlainListStyle())
             }
             .navigationBarItems(trailing: Button(action: {
                 self.tabSelection = 2
@@ -22,6 +29,11 @@ struct HomeFeedScreen: View {
             })
                 )
             .navigationBarTitle("app_name",displayMode: .inline)
+        }
+        .onAppear{
+            viewModel.apiPostList{
+                print(viewModel.items.count)
+            }
         }
        
     }
