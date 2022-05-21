@@ -13,12 +13,22 @@ struct HomeProfileScreen: View {
     @State var level = 2
     @State var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: UIScreen.width/2 - 15), spacing: 10), count: 2)
     
+    init() {
+        columns = Array(repeating: GridItem(.flexible(minimum: postSize()), spacing: 10), count: level)
+    }
+    
     func postSize() -> CGFloat{
         if level == 1{
             return UIScreen.width/CGFloat(level) - 20
         }
         return UIScreen.width/CGFloat(level) - 15
     }
+    
+    func postColumns(count: Int){
+        level = count
+        columns = Array(repeating: GridItem(.flexible(minimum: postSize()), spacing: 10), count: level)
+    }
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -96,7 +106,30 @@ struct HomeProfileScreen: View {
                         }
                         .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.8)))
                         .padding(.top,15)
-                        
+                        HStack{
+                            Spacer()
+                            Button{
+                                postColumns(count: 1)
+                            }label: {
+                               Image(systemName: "rectangle.grid.1x2")
+                                    .resizable()
+                                    .frame(width: 20, height: 25)
+                                    .foregroundColor(Utils.color2)
+                            }
+                            Spacer()
+                            Button{
+                                postColumns(count: 2)
+                            }label: {
+                                Image(systemName: "rectangle.grid.2x2")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(Utils.color2)
+                            }
+                            Spacer()
+                        }
+                        .padding(.top,10)
+                        .padding(.bottom,10)
+                        .frame(maxWidth: .infinity)
                         ScrollView{
                             LazyVGrid(columns: columns,spacing: 10){
                                 ForEach(viewModel.items , id: \.self){item in
