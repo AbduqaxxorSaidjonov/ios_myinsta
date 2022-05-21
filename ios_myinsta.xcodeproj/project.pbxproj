@@ -36,6 +36,10 @@
 		765992C52830F9F600F78570 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765992C42830F9F600F78570 /* ImagePickerView.swift */; };
 		76792EF6282D28DA0070FD6E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76792EF8282D28DA0070FD6E /* Localizable.strings */; };
 		76792EFB282D29590070FD6E /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76792EFA282D293C0070FD6E /* Billabong.ttf */; };
+		76816BAC28397E2D00F18A65 /* MyPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76816BAB28397E2D00F18A65 /* MyPostCell.swift */; };
+		76FC0AF32838D02700C5AA2D /* SeachViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */; };
+		76FC0AF52838D51C00C5AA2D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF42838D51C00C5AA2D /* UserCell.swift */; };
+		76FC0AF728397ACF00C5AA2D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */; };
 		99C1BA1CB472DC3C2459DD54 /* Pods_ios_myinstaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25D853D4FEB6659639253A /* Pods_ios_myinstaTests.framework */; };
 		E37C83176DDCE03D5D89900E /* Pods_ios_myinsta_ios_myinstaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2C67F730AA15B8855BBDB7 /* Pods_ios_myinsta_ios_myinstaUITests.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +97,10 @@
 		76792EF9282D28DC0070FD6E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		76792EFA282D293C0070FD6E /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
 		76792EFC282D29840070FD6E /* ios-myinsta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ios-myinsta-Info.plist"; sourceTree = SOURCE_ROOT; };
+		76816BAB28397E2D00F18A65 /* MyPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostCell.swift; sourceTree = "<group>"; };
+		76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachViewModel.swift; sourceTree = "<group>"; };
+		76FC0AF42838D51C00C5AA2D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		7DEB38BF93C57D2E674647B4 /* Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig"; path = "Target Support Files/Pods-ios_myinsta-ios_myinstaUITests/Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F84EF4C509810E1DC038847 /* Pods-ios_myinsta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_myinsta.release.xcconfig"; path = "Target Support Files/Pods-ios_myinsta/Pods-ios_myinsta.release.xcconfig"; sourceTree = "<group>"; };
 		9B37C232B00673B55B2ED08D /* Pods-ios_myinstaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_myinstaTests.debug.xcconfig"; path = "Target Support Files/Pods-ios_myinstaTests/Pods-ios_myinstaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +153,8 @@
 			children = (
 				760FDCAE283377F300CD2CA6 /* FeedViewModel.swift */,
 				760FDCB52833846F00CD2CA6 /* LikesViewModel.swift */,
+				76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */,
+				76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -153,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				760FDCB328337AA300CD2CA6 /* PostCell.swift */,
+				76FC0AF42838D51C00C5AA2D /* UserCell.swift */,
+				76816BAB28397E2D00F18A65 /* MyPostCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -182,10 +194,10 @@
 		763547E9282A2A950007BA52 /* ios_myinsta */ = {
 			isa = PBXGroup;
 			children = (
-				760FDCB228337A9000CD2CA6 /* cells */,
-				760FDCAD283377DB00CD2CA6 /* viewmodel */,
 				76792EFC282D29840070FD6E /* ios-myinsta-Info.plist */,
 				7635481D282A2ADC0007BA52 /* screens */,
+				760FDCB228337A9000CD2CA6 /* cells */,
+				760FDCAD283377DB00CD2CA6 /* viewmodel */,
 				765992BF2830E3B300F78570 /* model */,
 				765992BC2830E2F500F78570 /* services */,
 				7635481A282A2ABA0007BA52 /* utils */,
@@ -535,11 +547,15 @@
 				765992B52830DDA400F78570 /* HomeSearchScreen.swift in Sources */,
 				763547F4282A2A960007BA52 /* Persistence.swift in Sources */,
 				7635481F282A2AFE0007BA52 /* SignInScreen.swift in Sources */,
+				76816BAC28397E2D00F18A65 /* MyPostCell.swift in Sources */,
 				76354823282A2B1B0007BA52 /* StarterScreen.swift in Sources */,
+				76FC0AF728397ACF00C5AA2D /* ProfileViewModel.swift in Sources */,
 				765992B92830DDC500F78570 /* HomeLikesScreen.swift in Sources */,
+				76FC0AF32838D02700C5AA2D /* SeachViewModel.swift in Sources */,
 				765992BB2830DDD500F78570 /* HomeProfileScreen.swift in Sources */,
 				760FDCAF283377F300CD2CA6 /* FeedViewModel.swift in Sources */,
 				763547EB282A2A950007BA52 /* ios_myinstaApp.swift in Sources */,
+				76FC0AF52838D51C00C5AA2D /* UserCell.swift in Sources */,
 				765992C12830E3C900F78570 /* User.swift in Sources */,
 				760FDCB62833846F00CD2CA6 /* LikesViewModel.swift in Sources */,
 				765992BE2830E31400F78570 /* SessionStore.swift in Sources */,

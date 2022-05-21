@@ -38,6 +38,7 @@ struct HomeScreen: View {
                 .tabItem{
                     Image(systemName: "person.circle")
                 }
+                .accentColor(Utils.color2)
             .tag(4)
         }
         .accentColor(Utils.color2)

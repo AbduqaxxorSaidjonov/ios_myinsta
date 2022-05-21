@@ -18,6 +18,7 @@ struct HomeFeedScreen: View {
                 List{
                     ForEach(viewModel.items, id: \.self){item in
                         PostCell(post: item).listRowInsets(EdgeInsets())
+                            .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .listStyle(PlainListStyle())
