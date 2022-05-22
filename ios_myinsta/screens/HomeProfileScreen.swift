@@ -12,6 +12,22 @@ struct HomeProfileScreen: View {
     @ObservedObject var viewModel = ProfileViewModel()
     @State var level = 2
     @State var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: UIScreen.width/2 - 15), spacing: 10), count: 2)
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var isImagePickerDisplay = false
+    @State private var selectedImage: UIImage?
+    @State private var isSheet = false
+    
+    var actionSheet: ActionSheet{
+        return ActionSheet(title: Text("action"), buttons: [
+            .default(Text("pick_photo"),action: {
+                self.sourceType = .photoLibrary
+                self.isImagePickerDisplay.toggle()
+            }),.default(Text("take_photo"),action: {
+                self.sourceType = .camera
+                self.isImagePickerDisplay.toggle()
+            }),
+            .cancel(Text("cancel"))])
+    }
     
     init() {
         columns = Array(repeating: GridItem(.flexible(minimum: postSize()), spacing: 10), count: level)
@@ -34,6 +50,18 @@ struct HomeProfileScreen: View {
             ZStack{
                 VStack{
                     HStack(spacing: 0){
+                        if self.selectedImage != nil {
+                            VStack{
+                            Image(uiImage: self.selectedImage!)
+                                .resizable()
+                                    .clipShape(Circle())
+                                    .scaledToFill()
+                                    .frame(width: UIScreen.width/5, height: UIScreen.width/5)
+                                    .padding(.all,2)
+                            }
+                            .overlay(RoundedRectangle(cornerRadius: UIScreen.width/10).stroke(Utils.color2,lineWidth: 3))
+                        }
+                        else{
                         VStack{
                         Image("ic_person").resizable()
                             .clipShape(Circle())
@@ -41,12 +69,19 @@ struct HomeProfileScreen: View {
                             .padding(.all,2)
                         }
                         .overlay(RoundedRectangle(cornerRadius: UIScreen.width/10).stroke(Utils.color2,lineWidth: 3))
+                    }
                         Button{
-                            
+                            self.isSheet = true
                         }label: {
                             Image(systemName: "plus.circle.fill")
                                 .resizable().frame(width: 20, height: 20)
                         }
+                        .actionSheet(isPresented: $isSheet, content: {
+                            self.actionSheet
+                        })
+                        .sheet(isPresented: $isImagePickerDisplay, content: {
+                            ImagePickerView(selectedImage: $selectedImage, sourceType: self.sourceType)
+                        })
                         .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white))
                         .offset(x: -UIScreen.width/17, y: UIScreen.width/13)
                         
