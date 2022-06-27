@@ -12,6 +12,9 @@
 		760FDCB1283378A100CD2CA6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDCB0283378A100CD2CA6 /* Post.swift */; };
 		760FDCB428337AA300CD2CA6 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDCB328337AA300CD2CA6 /* PostCell.swift */; };
 		760FDCB62833846F00CD2CA6 /* LikesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDCB52833846F00CD2CA6 /* LikesViewModel.swift */; };
+		761B00FC283BE77B00532A38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 761B00FB283BE77B00532A38 /* GoogleService-Info.plist */; };
+		763207E22869E49A0077BDCF /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763207E12869E49A0077BDCF /* SignInViewModel.swift */; };
+		763207E42869E7CB0077BDCF /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763207E32869E7CB0077BDCF /* SignUpViewModel.swift */; };
 		763547EB282A2A950007BA52 /* ios_myinstaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763547EA282A2A950007BA52 /* ios_myinstaApp.swift */; };
 		763547EF282A2A960007BA52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763547EE282A2A960007BA52 /* Assets.xcassets */; };
 		763547F2282A2A960007BA52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763547F1282A2A960007BA52 /* Preview Assets.xcassets */; };
@@ -68,6 +71,9 @@
 		760FDCB0283378A100CD2CA6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		760FDCB328337AA300CD2CA6 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		760FDCB52833846F00CD2CA6 /* LikesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewModel.swift; sourceTree = "<group>"; };
+		761B00FB283BE77B00532A38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		763207E12869E49A0077BDCF /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		763207E32869E7CB0077BDCF /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		763547E7282A2A950007BA52 /* Instagram Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instagram Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		763547EA282A2A950007BA52 /* ios_myinstaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_myinstaApp.swift; sourceTree = "<group>"; };
 		763547EE282A2A960007BA52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 				760FDCB52833846F00CD2CA6 /* LikesViewModel.swift */,
 				76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */,
 				76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */,
+				763207E12869E49A0077BDCF /* SignInViewModel.swift */,
+				763207E32869E7CB0077BDCF /* SignUpViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 				76354819282A2AB00007BA52 /* apputils */,
 				763547EA282A2A950007BA52 /* ios_myinstaApp.swift */,
 				763547F3282A2A960007BA52 /* Persistence.swift */,
+				761B00FB283BE77B00532A38 /* GoogleService-Info.plist */,
 				763547F0282A2A960007BA52 /* Preview Content */,
 			);
 			path = ios_myinsta;
@@ -262,8 +271,8 @@
 				76354820282A2B0C0007BA52 /* SignUpScreen.swift */,
 				76354822282A2B1B0007BA52 /* StarterScreen.swift */,
 				765992B02830DD8300F78570 /* HomeScreen.swift */,
-				765992B22830DD9600F78570 /* HomeFeedScreen.swift */,
 				765992B42830DDA400F78570 /* HomeSearchScreen.swift */,
+				765992B22830DD9600F78570 /* HomeFeedScreen.swift */,
 				765992B62830DDB500F78570 /* HomeUploadScreen.swift */,
 				765992B82830DDC500F78570 /* HomeLikesScreen.swift */,
 				765992BA2830DDD500F78570 /* HomeProfileScreen.swift */,
@@ -411,6 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				761B00FC283BE77B00532A38 /* GoogleService-Info.plist in Resources */,
 				763547F2282A2A960007BA52 /* Preview Assets.xcassets in Resources */,
 				76792EF6282D28DA0070FD6E /* Localizable.strings in Resources */,
 				763547EF282A2A960007BA52 /* Assets.xcassets in Resources */,
@@ -546,6 +556,7 @@
 				765992B72830DDB500F78570 /* HomeUploadScreen.swift in Sources */,
 				765992B52830DDA400F78570 /* HomeSearchScreen.swift in Sources */,
 				763547F4282A2A960007BA52 /* Persistence.swift in Sources */,
+				763207E22869E49A0077BDCF /* SignInViewModel.swift in Sources */,
 				7635481F282A2AFE0007BA52 /* SignInScreen.swift in Sources */,
 				76816BAC28397E2D00F18A65 /* MyPostCell.swift in Sources */,
 				76354823282A2B1B0007BA52 /* StarterScreen.swift in Sources */,
@@ -554,6 +565,7 @@
 				76FC0AF32838D02700C5AA2D /* SeachViewModel.swift in Sources */,
 				765992BB2830DDD500F78570 /* HomeProfileScreen.swift in Sources */,
 				760FDCAF283377F300CD2CA6 /* FeedViewModel.swift in Sources */,
+				763207E42869E7CB0077BDCF /* SignUpViewModel.swift in Sources */,
 				763547EB282A2A950007BA52 /* ios_myinstaApp.swift in Sources */,
 				76FC0AF52838D51C00C5AA2D /* UserCell.swift in Sources */,
 				765992C12830E3C900F78570 /* User.swift in Sources */,
@@ -619,6 +631,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -679,6 +692,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

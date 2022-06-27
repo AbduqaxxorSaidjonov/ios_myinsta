@@ -16,6 +16,7 @@ struct HomeProfileScreen: View {
     @State private var isImagePickerDisplay = false
     @State private var selectedImage: UIImage?
     @State private var isSheet = false
+    @State var showingAlert = false
     
     var actionSheet: ActionSheet{
         return ActionSheet(title: Text("action"), buttons: [
@@ -179,11 +180,20 @@ struct HomeProfileScreen: View {
                 }.padding(.all,20)
             }
             .navigationBarTitle("profile_page",displayMode: .inline)
-            .navigationBarItems(trailing: Button{
-            }label: {
+            .navigationBarItems(trailing: Button(action:
+                                                    {
+                self.showingAlert = true
+            }
+            ,label: {
             Image(systemName: "pip.exit")
                     .foregroundColor(.black)
             })
+                .alert(isPresented: $showingAlert){
+                    return Alert(title: Text("sign_out"), message: Text("want_to_signout"), primaryButton: .destructive(Text("confirm"),action: {
+                        viewModel.apiSignOut()
+                    }), secondaryButton: .cancel())
+                }
+            )
         }
         .onAppear{
             viewModel.apiPostList {

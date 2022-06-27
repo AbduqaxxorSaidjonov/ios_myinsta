@@ -5,17 +5,26 @@
 //  Created by Abduqaxxor on 10/5/22.
 //
 
+
 import SwiftUI
+import Firebase
 
 @main
-struct ios_myinstaApp: App {
-    let persistenceController = PersistenceController.shared
+struct ios_instacloneApp: App {
+    
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
 
     var body: some Scene {
         WindowGroup {
-        StarterScreen()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+          StarterScreen()
                 .environmentObject(SessionStore())
         }
+    }
+}
+
+class AppDelegate: NSObject , UIApplicationDelegate{
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool{
+        FirebaseApp.configure()
+        return true
     }
 }

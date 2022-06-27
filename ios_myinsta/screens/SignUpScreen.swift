@@ -9,12 +9,26 @@ import SwiftUI
 
 struct SignUpScreen: View {
     
-    @State var email = ""
-    @State var fullname = ""
-    @State var password = ""
+    @ObservedObject var viewModel = SignUpViewModel()
+    @EnvironmentObject var session: SessionStore
+    @State var email = "abduqahhor2349@gmail.com"
+    @State var fullname = "Abduqahhor"
+    @State var password = "123456"
     @State var cnpassword = ""
     @Environment(\.presentationMode) var presentation
     
+    func doSignUp(){
+        viewModel.apiSignUp(email: email, password: password, completion: {
+            result in
+            if !result {
+                
+            }else{
+                var user = User(email: email, displayName: fullname, password: password, imgUser: "")
+                user.uid = session.session?.uid
+                presentation.wrappedValue.dismiss()
+            }
+        })
+    }
   
     var body: some View {
         NavigationView{
@@ -73,7 +87,7 @@ struct SignUpScreen: View {
                     .cornerRadius(8)
                     
                     Button(action: {
-                        
+                        doSignUp()
                     },
                            label: {
                         Text("sign_up")

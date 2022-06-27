@@ -8,6 +8,10 @@ target 'ios_myinsta' do
   # Pods for ios_myinsta
 
 pod 'SDWebImageSwiftUI'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+
   target 'ios_myinstaTests' do
     inherit! :search_paths
     # Pods for testing

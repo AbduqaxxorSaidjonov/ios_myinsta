@@ -9,8 +9,18 @@ import SwiftUI
 
 struct SignInScreen: View {
     
-    @State var email = ""
-    @State var password = ""
+    @ObservedObject var viewModel = SignInViewModel()
+    @State var isLoading = false
+    @State var email = "abduqahhor2349@gmail.com"
+    @State var password = "123456"
+    
+    func doSignIn(){
+        viewModel.apiSignIn(email: email, password: password, completion: {result in
+            if !result{
+                //when error show dialog and toast
+            }
+        })
+    }
     
     var body: some View {
         NavigationView{
@@ -47,7 +57,7 @@ struct SignInScreen: View {
                     .cornerRadius(8)
                     
                     Button(action: {
-                        
+                        doSignIn()
                     }, label: {
                         Text("Sign In")
                             .foregroundColor(.white)
@@ -67,7 +77,10 @@ struct SignInScreen: View {
                     .frame(maxWidth: .infinity,maxHeight: 60)
                 }
                 .padding()
-    }
+                if viewModel.isLoading {
+                    ProgressView()
+                }
+            }
             .edgesIgnoringSafeArea(.all)
         }
         

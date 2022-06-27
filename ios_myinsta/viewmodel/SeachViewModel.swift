@@ -14,7 +14,6 @@ class SearchViewModel: ObservableObject{
     func apiUserList(completion: @escaping () -> ()){
         isLoading = true
         items.removeAll()
-        
         self.items.append(User(uid: "1", email: "abduqahhor2349@gmail.com", displayName: "abduqahhor2349"))
         self.items.append(User(uid: "1", email: "abduqahhor2349@gmail.com", displayName: "abduqahhor2349"))
         self.items.append(User(uid: "1", email: "abduqahhor2349@gmail.com", displayName: "abduqahhor2349"))
