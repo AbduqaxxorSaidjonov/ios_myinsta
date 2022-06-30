@@ -31,7 +31,7 @@ class SessionStore: ObservableObject{
     }
     
     func signIn(email: String, password: String, handler: @escaping AuthDataResultCallback){
-        Auth.auth().createUser(withEmail: email, password: password, completion: handler)
+        Auth.auth().signIn(withEmail: email, password: password, completion: handler)
     }
     
     func signOut() -> Bool{
@@ -39,7 +39,8 @@ class SessionStore: ObservableObject{
             try Auth.auth().signOut()
             self.session = nil
             return true
-        } catch{
+        }
+        catch{
             return false
         }
     }

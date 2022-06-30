@@ -11,11 +11,11 @@ struct SignInScreen: View {
     
     @ObservedObject var viewModel = SignInViewModel()
     @State var isLoading = false
-    @State var email = "abduqahhor2349@gmail.com"
-    @State var password = "123456"
+   @ObservedObject var emailObj = EmailValidationObj()
+    @ObservedObject var passwordObj = PasswordValidationObj()
     
     func doSignIn(){
-        viewModel.apiSignIn(email: email, password: password, completion: {result in
+        viewModel.apiSignIn(email: emailObj.email, password: passwordObj.pass, completion:{result in
             if !result{
                 //when error show dialog and toast
             }
@@ -33,29 +33,46 @@ struct SignInScreen: View {
                     Text("Instagram").foregroundColor(.white)
                         .font(Font.custom("Billabong",size: 45))
                     
+                    VStack(alignment: .leading,spacing: 4){
                     ZStack(alignment: .leading){
-                        if email.isEmpty{
+                        if emailObj.email.isEmpty{
                             Text("Email").foregroundColor(.white.opacity(0.6))
                         }
-                        TextField("",text: $email)
+                        TextField("",text: $emailObj.email)
                     }
                     .padding(.leading,10)
                     .frame(height: 50)
                     .background(.white.opacity(0.4))
                     .cornerRadius(8)
-                    .padding(.top,20)
-                    
+                        if !emailObj.error.isEmpty{
+                        Text(emailObj.error).font(.system(size: 15))
+                            .padding(.leading,5)
+                            .padding(.trailing,5)
+                            .background(Color.white)
+                            .foregroundColor(.red)
+                            .cornerRadius(4)
+                        }
+                    }
+                    VStack(alignment: .leading,spacing: 4){
                     ZStack(alignment: .leading){
-                        if password.isEmpty{
+                        if passwordObj.pass.isEmpty{
                             Text("Password").foregroundColor(.white.opacity(0.6))
                         }
-                        SecureField("",text: $password)
+                        SecureField("",text: $passwordObj.pass)
                     }
                     .padding(.leading,10)
                     .frame(height: 50)
                     .background(.white.opacity(0.4))
                     .cornerRadius(8)
-                    
+                        if !passwordObj.error.isEmpty{
+                        Text(passwordObj.error).font(.system(size: 15))
+                        .padding(.leading,5)
+                        .padding(.trailing,5)
+                        .background(Color.white)
+                        .foregroundColor(.red)
+                        .cornerRadius(4)
+                        }
+                }
                     Button(action: {
                         doSignIn()
                     }, label: {

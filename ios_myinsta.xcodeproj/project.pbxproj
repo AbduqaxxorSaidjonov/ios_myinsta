@@ -40,6 +40,7 @@
 		76792EF6282D28DA0070FD6E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76792EF8282D28DA0070FD6E /* Localizable.strings */; };
 		76792EFB282D29590070FD6E /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76792EFA282D293C0070FD6E /* Billabong.ttf */; };
 		76816BAC28397E2D00F18A65 /* MyPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76816BAB28397E2D00F18A65 /* MyPostCell.swift */; };
+		7694D882286C9BA700C1D77B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694D881286C9BA700C1D77B /* Validation.swift */; };
 		76FC0AF32838D02700C5AA2D /* SeachViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */; };
 		76FC0AF52838D51C00C5AA2D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF42838D51C00C5AA2D /* UserCell.swift */; };
 		76FC0AF728397ACF00C5AA2D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */; };
@@ -104,6 +105,7 @@
 		76792EFA282D293C0070FD6E /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
 		76792EFC282D29840070FD6E /* ios-myinsta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ios-myinsta-Info.plist"; sourceTree = SOURCE_ROOT; };
 		76816BAB28397E2D00F18A65 /* MyPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostCell.swift; sourceTree = "<group>"; };
+		7694D881286C9BA700C1D77B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachViewModel.swift; sourceTree = "<group>"; };
 		76FC0AF42838D51C00C5AA2D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				765992BD2830E31400F78570 /* SessionStore.swift */,
+				7694D881286C9BA700C1D77B /* Validation.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				763547F4282A2A960007BA52 /* Persistence.swift in Sources */,
 				763207E22869E49A0077BDCF /* SignInViewModel.swift in Sources */,
 				7635481F282A2AFE0007BA52 /* SignInScreen.swift in Sources */,
+				7694D882286C9BA700C1D77B /* Validation.swift in Sources */,
 				76816BAC28397E2D00F18A65 /* MyPostCell.swift in Sources */,
 				76354823282A2B1B0007BA52 /* StarterScreen.swift in Sources */,
 				76FC0AF728397ACF00C5AA2D /* ProfileViewModel.swift in Sources */,

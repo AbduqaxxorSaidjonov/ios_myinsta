@@ -9,15 +9,19 @@ import SwiftUI
 
 struct SignUpScreen: View {
     
+    @ObservedObject var emailObj = EmailValidationObj()
+    @ObservedObject var passwordObj = PasswordValidationObj()
     @ObservedObject var viewModel = SignUpViewModel()
     @EnvironmentObject var session: SessionStore
-    @State var email = "abduqahhor2349@gmail.com"
-    @State var fullname = "Abduqahhor"
-    @State var password = "123456"
+    @State var email = ""
+    @State var password = ""
+    @State var fullname = ""
     @State var cnpassword = ""
     @Environment(\.presentationMode) var presentation
     
     func doSignUp(){
+        email = emailObj.email
+        password = emailObj.email
         viewModel.apiSignUp(email: email, password: password, completion: {
             result in
             if !result {
@@ -50,30 +54,48 @@ struct SignUpScreen: View {
                     .background(Color.white.opacity(0.4))
                     .cornerRadius(8)
                     .padding(.top,20)
-                    
+                    VStack(alignment: .leading,spacing: 4){
                     ZStack(alignment: .leading){
-                        if email.isEmpty{
+                        if emailObj.email.isEmpty{
                             Text("email")
                                 .foregroundColor(.white.opacity(0.6))
                         }
-                        TextField("",text: $email)
+                        TextField("",text: $emailObj.email)
                     }
                     .padding(.leading,10)
                         .frame(height: 50)
                         .background(.white.opacity(0.4))
                         .cornerRadius(8)
+                        if !emailObj.error.isEmpty{
+                        Text(emailObj.error).font(.system(size: 15))
+                            .padding(.leading,5)
+                            .padding(.trailing,5)
+                            .background(Color.white)
+                            .foregroundColor(.red)
+                            .cornerRadius(4)
+                        }
+                    }
                     
+                    VStack(alignment: .leading,spacing: 4){
                     ZStack(alignment: .leading){
-                        if password.isEmpty{
+                        if passwordObj.pass.isEmpty{
                             Text("password").foregroundColor(.white.opacity(0.6))
                         }
-                        SecureField("",text: $password)
+                        SecureField("",text: $passwordObj.pass)
                     }
                     .padding(.leading,10)
                     .frame(height: 50)
                     .background(Color.white.opacity(0.4))
                     .cornerRadius(8)
-                    
+                        if !passwordObj.error.isEmpty{
+                        Text(passwordObj.error).font(.system(size: 15))
+                        .padding(.leading,5)
+                        .padding(.trailing,5)
+                        .background(Color.white)
+                        .foregroundColor(.red)
+                        .cornerRadius(4)
+                        }
+                    }
                     ZStack(alignment: .leading){
                         if cnpassword.isEmpty{
                             Text("cpassword")
