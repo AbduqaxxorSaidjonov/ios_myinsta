@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeProfileScreen: View {
     
+    @EnvironmentObject var session: SessionStore
     @ObservedObject var viewModel = ProfileViewModel()
     @State var level = 2
     @State var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: UIScreen.width/2 - 15), spacing: 10), count: 2)
@@ -46,14 +48,19 @@ struct HomeProfileScreen: View {
         columns = Array(repeating: GridItem(.flexible(minimum: postSize()), spacing: 10), count: level)
     }
     
+    func uploadImage(){
+        let uid = (session.session?.uid)!
+        viewModel.apiUploadMyImage(uid: uid,image: selectedImage!)
+    }
+    
     var body: some View {
         NavigationView{
             ZStack{
                 VStack{
                     HStack(spacing: 0){
-                        if self.selectedImage != nil {
+                        if !viewModel.imgUser.isEmpty{
                             VStack{
-                            Image(uiImage: self.selectedImage!)
+                                WebImage(url: URL(string: viewModel.imgUser))
                                 .resizable()
                                     .clipShape(Circle())
                                     .scaledToFill()
@@ -80,9 +87,9 @@ struct HomeProfileScreen: View {
                         .actionSheet(isPresented: $isSheet, content: {
                             self.actionSheet
                         })
-                        .sheet(isPresented: $isImagePickerDisplay, content: {
+                        .sheet(isPresented: $isImagePickerDisplay,onDismiss: uploadImage){
                             ImagePickerView(selectedImage: $selectedImage, sourceType: self.sourceType)
-                        })
+                        }
                         .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white))
                         .offset(x: -UIScreen.width/17, y: UIScreen.width/13)
                         
@@ -123,12 +130,12 @@ struct HomeProfileScreen: View {
                         
                     }
                     VStack(alignment: .leading, spacing: 5){
-                        Text("Abduqahhor Saidjonov")
+                        Text(viewModel.displayName)
                             .foregroundColor(.black)
                             .font(.system(size: 17))
                             .fontWeight(.medium)
                             .padding(.top,15)
-                        Text("abduqahhor2349@gmail.com")
+                        Text(viewModel.email)
                             .foregroundColor(.gray)
                             .font(.system(size: 15))
                             .padding(.top,3)
@@ -178,6 +185,10 @@ struct HomeProfileScreen: View {
                     
                     Spacer()
                 }.padding(.all,20)
+                
+                if viewModel.isLoading{
+                    ProgressView()
+                }
             }
             .navigationBarTitle("profile_page",displayMode: .inline)
             .navigationBarItems(trailing: Button(action:
@@ -196,8 +207,9 @@ struct HomeProfileScreen: View {
             )
         }
         .onAppear{
-            viewModel.apiPostList {
-                print(viewModel.items.count)
+            let uid = (session.session?.uid)!
+            viewModel.apiLoadUser(uid: uid)
+            viewModel.apiPostList{
             }
         }
     }

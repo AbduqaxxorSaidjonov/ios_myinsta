@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeSearchScreen: View {
     
+    @EnvironmentObject var session: SessionStore
     @State var keyword = ""
     @ObservedObject var viewModel = SearchViewModel()
     
@@ -33,13 +34,16 @@ struct HomeSearchScreen: View {
                     .listStyle(PlainListStyle())
                     Spacer()
                 }
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                }
             }
             .navigationBarTitle("search_title",displayMode: .inline)
         }
         .onAppear{
-            viewModel.apiUserList {
-                print(viewModel.items.count)
-            }
+            let uid = (session.session?.uid)!
+            viewModel.apiUserList(uid: uid, keyword: keyword)
         }
     }
 }

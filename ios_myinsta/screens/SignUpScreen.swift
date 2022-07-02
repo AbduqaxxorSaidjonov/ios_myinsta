@@ -29,6 +29,7 @@ struct SignUpScreen: View {
             }else{
                 var user = User(email: email, displayName: fullname, password: password, imgUser: "")
                 user.uid = session.session?.uid
+                viewModel.apiStoreUser(user: user)
                 presentation.wrappedValue.dismiss()
             }
         })

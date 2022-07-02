@@ -27,4 +27,17 @@ struct User: Hashable{
         self.password = password
         self.imgUser = imgUser
     }
+    
+    init(email: String?,displayName: String?,imgUser: String?){
+        self.email = email
+        self.displayName = displayName
+        self.imgUser = imgUser
+    }
+    
+    init(uid: String?, email: String?, displayName: String?, imgUser: String?){
+        self.uid = uid
+        self.email = email
+        self.displayName = displayName
+        self.imgUser = imgUser
+    }
 }
