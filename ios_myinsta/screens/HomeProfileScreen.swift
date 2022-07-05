@@ -176,7 +176,9 @@ struct HomeProfileScreen: View {
                         ScrollView{
                             LazyVGrid(columns: columns,spacing: 10){
                                 ForEach(viewModel.items , id: \.self){item in
-                                    MyPostCell(post: item, length: postSize())
+                                    if let uid = session.session?.uid!{
+                                        MyPostCell(uid: uid, viewModel: viewModel, post: item, length: postSize())
+                                    }
                                 }
                             }
                         }
@@ -186,8 +188,15 @@ struct HomeProfileScreen: View {
                     Spacer()
                 }.padding(.all,20)
                 
-                if viewModel.isLoading{
+                if viewModel.isLoading {
+                    ZStack{
+                        Color(.systemBackground)
+                            .ignoresSafeArea()
+                            .opacity(0.8)
                     ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: Utils.color2))
+                            .scaleEffect(2)
+                    }
                 }
             }
             .navigationBarTitle("profile_page",displayMode: .inline)
@@ -208,9 +217,8 @@ struct HomeProfileScreen: View {
         }
         .onAppear{
             let uid = (session.session?.uid)!
+            viewModel.apiPostList(uid: uid)
             viewModel.apiLoadUser(uid: uid)
-            viewModel.apiPostList{
-            }
         }
     }
 }

@@ -37,4 +37,40 @@ class StorageStore: ObservableObject{
             })
         })
     }
+    
+    func timeString() -> String{
+        let now = Date()
+        let formatter = ISO8601DateFormatter()
+        let dateTime = formatter.string(from: now)
+        print(dateTime)
+        return dateTime
+    }
+    
+    func uploadPostImage(uid: String, _ image: UIImage,completion: @escaping(String) -> (Void)){
+        let imageRef = storageRef.child("posts/" + uid + timeString() + ".jpg")
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else{
+            return completion("")
+            
+        }
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        imageRef.putData(imageData, metadata: metaData, completion: {[self] (metaData , error) in
+            if let error = error{
+                assertionFailure(error.localizedDescription)
+                return completion("")
+            }
+            
+            imageRef.downloadURL(completion: { (url , error) in
+                if let error = error {
+                    assertionFailure(error.localizedDescription)
+                    return completion("")
+                }
+                let downloadUrl = String(describing: url!)
+                completion(downloadUrl)
+            })
+        })
+    }
 }

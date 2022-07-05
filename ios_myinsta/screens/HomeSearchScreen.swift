@@ -36,7 +36,14 @@ struct HomeSearchScreen: View {
                 }
                 
                 if viewModel.isLoading {
+                    ZStack{
+                        Color(.systemBackground)
+                            .ignoresSafeArea()
+                            .opacity(0.8)
                     ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: Utils.color2))
+                            .scaleEffect(2)
+                    }
                 }
             }
             .navigationBarTitle("search_title",displayMode: .inline)

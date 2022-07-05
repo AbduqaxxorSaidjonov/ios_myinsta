@@ -10,7 +10,7 @@
 		15910F69CBC1AA2CFE1DB0A0 /* Pods_ios_myinsta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44C63F6BC3DC8BBCC49B8ED /* Pods_ios_myinsta.framework */; };
 		760FDCAF283377F300CD2CA6 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDCAE283377F300CD2CA6 /* FeedViewModel.swift */; };
 		760FDCB1283378A100CD2CA6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDCB0283378A100CD2CA6 /* Post.swift */; };
-		760FDCB428337AA300CD2CA6 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDCB328337AA300CD2CA6 /* PostCell.swift */; };
+		760FDCB428337AA300CD2CA6 /* FeedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDCB328337AA300CD2CA6 /* FeedPostCell.swift */; };
 		760FDCB62833846F00CD2CA6 /* LikesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDCB52833846F00CD2CA6 /* LikesViewModel.swift */; };
 		761B00FC283BE77B00532A38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 761B00FB283BE77B00532A38 /* GoogleService-Info.plist */; };
 		763207E22869E49A0077BDCF /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763207E12869E49A0077BDCF /* SignInViewModel.swift */; };
@@ -43,6 +43,8 @@
 		7688B98B2870C29F008416DA /* DatabaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B98A2870C29F008416DA /* DatabaseStore.swift */; };
 		7688B98D2870D4C5008416DA /* StorageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B98C2870D4C5008416DA /* StorageStore.swift */; };
 		7694D882286C9BA700C1D77B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694D881286C9BA700C1D77B /* Validation.swift */; };
+		76A4FFAA2874A3F2003A76F8 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */; };
+		76A4FFAE2874BCBF003A76F8 /* LikesPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */; };
 		76FC0AF32838D02700C5AA2D /* SeachViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */; };
 		76FC0AF52838D51C00C5AA2D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF42838D51C00C5AA2D /* UserCell.swift */; };
 		76FC0AF728397ACF00C5AA2D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */; };
@@ -72,7 +74,7 @@
 		6E25D853D4FEB6659639253A /* Pods_ios_myinstaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_myinstaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		760FDCAE283377F300CD2CA6 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		760FDCB0283378A100CD2CA6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		760FDCB328337AA300CD2CA6 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		760FDCB328337AA300CD2CA6 /* FeedPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostCell.swift; sourceTree = "<group>"; };
 		760FDCB52833846F00CD2CA6 /* LikesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewModel.swift; sourceTree = "<group>"; };
 		761B00FB283BE77B00532A38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		763207E12869E49A0077BDCF /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +112,8 @@
 		7688B98A2870C29F008416DA /* DatabaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStore.swift; sourceTree = "<group>"; };
 		7688B98C2870D4C5008416DA /* StorageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStore.swift; sourceTree = "<group>"; };
 		7694D881286C9BA700C1D77B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
+		76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesPostCell.swift; sourceTree = "<group>"; };
 		76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachViewModel.swift; sourceTree = "<group>"; };
 		76FC0AF42838D51C00C5AA2D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */,
 				763207E12869E49A0077BDCF /* SignInViewModel.swift */,
 				763207E32869E7CB0077BDCF /* SignUpViewModel.swift */,
+				76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -176,9 +181,10 @@
 		760FDCB228337A9000CD2CA6 /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				760FDCB328337AA300CD2CA6 /* PostCell.swift */,
+				760FDCB328337AA300CD2CA6 /* FeedPostCell.swift */,
 				76FC0AF42838D51C00C5AA2D /* UserCell.swift */,
 				76816BAB28397E2D00F18A65 /* MyPostCell.swift */,
+				76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -573,6 +579,7 @@
 				76354823282A2B1B0007BA52 /* StarterScreen.swift in Sources */,
 				76FC0AF728397ACF00C5AA2D /* ProfileViewModel.swift in Sources */,
 				7688B98D2870D4C5008416DA /* StorageStore.swift in Sources */,
+				76A4FFAE2874BCBF003A76F8 /* LikesPostCell.swift in Sources */,
 				765992B92830DDC500F78570 /* HomeLikesScreen.swift in Sources */,
 				76FC0AF32838D02700C5AA2D /* SeachViewModel.swift in Sources */,
 				765992BB2830DDD500F78570 /* HomeProfileScreen.swift in Sources */,
@@ -590,7 +597,8 @@
 				760FDCB1283378A100CD2CA6 /* Post.swift in Sources */,
 				765992B32830DD9600F78570 /* HomeFeedScreen.swift in Sources */,
 				765992C52830F9F600F78570 /* ImagePickerView.swift in Sources */,
-				760FDCB428337AA300CD2CA6 /* PostCell.swift in Sources */,
+				76A4FFAA2874A3F2003A76F8 /* UploadViewModel.swift in Sources */,
+				760FDCB428337AA300CD2CA6 /* FeedPostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

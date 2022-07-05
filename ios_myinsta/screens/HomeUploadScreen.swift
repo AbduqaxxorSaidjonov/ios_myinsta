@@ -9,12 +9,29 @@ import SwiftUI
 
 struct HomeUploadScreen: View {
     
+    @EnvironmentObject var session: SessionStore
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var isSheet = false
     @Binding var tabSelection: Int
     @State var caption = ""
+    @ObservedObject var viewModel = UploadViewModel()
+    
+    func uploadPost(){
+        if caption.isEmpty || selectedImage == nil{
+            return
+        }
+        let uid = (session.session?.uid)!
+        viewModel.apiUploadPost(uid: uid,caption: caption,image: selectedImage!){result in
+            if result{
+                self.selectedImage = nil
+                self.caption = ""
+                self.tabSelection = 0
+            }
+        }
+    }
+    
     
     var actionSheet: ActionSheet{
         
@@ -95,10 +112,20 @@ struct HomeUploadScreen: View {
                     .padding(.top,10)
                     Spacer()
                 }
+                if viewModel.isLoading {
+                    ZStack{
+                        Color(.systemBackground)
+                            .ignoresSafeArea()
+                            .opacity(0.8)
+                    ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: Utils.color2))
+                            .scaleEffect(2)
+                    }
+                }
             }
             .navigationBarTitle("upload",displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
-                self.tabSelection = 0
+               uploadPost()
             }, label: {
                 Image(systemName: "square.and.arrow.up")
                     .foregroundColor(Utils.color2)

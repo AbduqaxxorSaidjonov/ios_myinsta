@@ -9,25 +9,35 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 
-struct PostCell: View {
+struct FeedPostCell: View {
     
-    var post: Post
+    var uid: String
+    var viewModel: FeedViewModel
+    @State var post: Post
     
     var body: some View {
         VStack(spacing: 0){
             HStack(spacing: 0){
                 VStack{
+                    if !post.imgPost!.isEmpty{
+                        WebImage(url: URL(string: post.imgUser!))
+                            .resizable()
+                            .clipShape(Circle())
+                            .frame(width: 46, height: 46)
+                            .padding(.all,2)
+                    }else{
                     Image("ic_person").resizable().clipShape(Circle())
                         .frame(width: 46, height: 46)
                         .padding(.all,2)
+                    }
                 }
                 .overlay(RoundedRectangle(cornerRadius: 25).stroke(Utils.color2,lineWidth: 2))
                 VStack(alignment: .leading, spacing: 3){
-                    Text(post.title!).fontWeight(.medium)
+                    Text(post.displayName!).fontWeight(.medium)
                         .font(.system(size: 17))
                         .foregroundColor(.black)
                     
-                    Text(post.content!).foregroundColor(.gray)
+                    Text(post.time!).foregroundColor(.gray)
                         .font(.system(size: 15))
                 }
                 .padding(.leading,15)
@@ -44,7 +54,7 @@ struct PostCell: View {
             .padding(.trailing,15)
             .padding(.top,15)
             
-            WebImage(url: URL(string: post.imgUrl!))
+            WebImage(url: URL(string: post.imgPost!))
                 .resizable().scaledToFit()
                 .padding(.top,10)
             
@@ -81,8 +91,8 @@ struct PostCell: View {
             .padding(.top,15)
             
             HStack(alignment: .top, spacing: 10){
-                Text(post.title!).fontWeight(.bold) +
-                Text(" Make asymbolic breakpoint at UIView, category on UIView listed in")
+                Text(post.displayName!).fontWeight(.bold) +
+                Text(" \(post.caption!)")
                     .foregroundColor(.black)
                     .font(.system(size: 16))
                 Spacer()
@@ -94,6 +104,6 @@ struct PostCell: View {
 
 struct PostCell_Previews: PreviewProvider {
     static var previews: some View {
-        PostCell(post: Post(title: "abduqahhor2349", content: "May 17,2022", imgUrl: Utils.image1))
+        FeedPostCell(uid: "uid", viewModel: FeedViewModel(), post: Post(caption: "symbolic", imgPost: Utils.image1))
     }
 }

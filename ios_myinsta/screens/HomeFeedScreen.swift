@@ -11,17 +11,30 @@ struct HomeFeedScreen: View {
     
     @Binding var tabSelection: Int
     @ObservedObject var viewModel = FeedViewModel()
+    @EnvironmentObject var session: SessionStore
     
     var body: some View {
         NavigationView{
             ZStack{
                 List{
                     ForEach(viewModel.items, id: \.self){item in
-                        PostCell(post: item).listRowInsets(EdgeInsets())
-                            .buttonStyle(PlainButtonStyle())
+                        if let uid = session.session?.uid!{
+                            FeedPostCell(uid: uid, viewModel: viewModel, post: item)
+                                .listRowInsets(EdgeInsets())
+                        }
                     }
                 }
                 .listStyle(PlainListStyle())
+                if viewModel.isLoading {
+                    ZStack{
+                        Color(.systemBackground)
+                            .ignoresSafeArea()
+                            .opacity(0.8)
+                    ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: Utils.color2))
+                            .scaleEffect(2)
+                    }
+                }
             }
             .navigationBarItems(trailing: Button(action: {
                 self.tabSelection = 2
@@ -32,8 +45,8 @@ struct HomeFeedScreen: View {
             .navigationBarTitle("app_name",displayMode: .inline)
         }
         .onAppear{
-            viewModel.apiPostList{
-                print(viewModel.items.count)
+            if let uid = session.session?.uid!{
+                viewModel.apiFeedList(uid: uid)
             }
         }
        
