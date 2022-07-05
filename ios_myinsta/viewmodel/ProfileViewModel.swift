@@ -4,6 +4,8 @@ import UIKit
 
 class ProfileViewModel: ObservableObject{
     
+    @Published var following: [User] = []
+    @Published var followers: [User] = []
     @Published var isLoading = false
     @Published var items: [Post] = []
     @Published var email = ""
@@ -47,4 +49,25 @@ class ProfileViewModel: ObservableObject{
     func apiUpdateMyImage(uid: String, imgUser: String?){
         DatabaseStore().updateMyImage(uid: uid, imgUser: imgUser)
     }
+    
+    func apiLoadFollowing(uid: String) {
+        isLoading = true
+        following.removeAll()
+        
+        DatabaseStore().loadFollowing(uid: uid, completion: {users in
+            self.following = users!
+            self.isLoading = false
+        })
+    }
+    
+    func apiLoadFollowers(uid: String) {
+        isLoading = true
+        followers.removeAll()
+        
+        DatabaseStore().loadFollowers(uid: uid, completion: {users in
+            self.followers = users!
+            self.isLoading = false
+        })
+    }
+    
 }

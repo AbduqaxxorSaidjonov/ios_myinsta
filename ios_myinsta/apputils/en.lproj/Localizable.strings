@@ -17,7 +17,8 @@
 "likes" = "Likes";
 "search_user" = "Search for User";
 "search_title" = "Search";
-"button_follow" = "Following";
+"button_following" = "Following";
+"button_follow" = "Follow";
 "profile_page" = "Profile";
 "edit_profile" = "Edit Profile";
 "confirm" = "Confirm";

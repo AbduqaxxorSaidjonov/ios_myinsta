@@ -10,7 +10,9 @@ import SDWebImageSwiftUI
 
 struct UserCell: View {
     
+    var uid: String
     var user: User
+    var viewModel: SearchViewModel
     
     var body: some View {
         HStack{
@@ -41,13 +43,26 @@ struct UserCell: View {
             Spacer()
             
             Button{
-                
+                if user.isFollowed{
+                    viewModel.apiUnFollowUser(uid: uid, to: user)
+                }else{
+                    viewModel.apiFollowUser(uid: uid, to: user)
+                }
             }label: {
-                Text("button_follow")
-                    .font(.system(size: 15))
-                    .frame(width: UIScreen.width/4, height: 30)
-                    .foregroundColor(.black.opacity(0.5))
-                    .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray,lineWidth: 1))
+                if user.isFollowed{
+                    Text("button_following")
+                        .font(.system(size: 15))
+                        .frame(width: UIScreen.width/4, height: 30)
+                        .foregroundColor(.black.opacity(0.5))
+                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray,lineWidth: 1))
+                }else{
+                    Text("button_follow")
+                        .font(.system(size: 15))
+                        .frame(width: UIScreen.width/4, height: 30)
+                        .foregroundColor(.black.opacity(0.5))
+                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray,lineWidth: 1))
+                }
+               
             }
             
         }.padding(.all,20)
@@ -56,6 +71,6 @@ struct UserCell: View {
 
 struct UserCell_Previews: PreviewProvider {
     static var previews: some View {
-        UserCell(user: User(uid: "1", email: "abduqahhor2349@gmail.com", displayName: "abduqahhor2349"))
+        UserCell(uid: "uid",user: User(uid: "1", email: "abduqahhor2349@gmail.com", displayName: "abduqahhor2349"), viewModel: SearchViewModel())
     }
 }

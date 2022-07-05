@@ -26,8 +26,8 @@ struct HomeSearchScreen: View {
                         .padding(.leading,10).padding(.trailing,10).padding(.top,10)
                     List{
                         ForEach(viewModel.items , id: \.self){item in
-                            UserCell(user: item)
-                                .listRowInsets(EdgeInsets())
+                            let uid = (session.session?.uid)!
+                            UserCell(uid: uid, user: item, viewModel: viewModel).listRowInsets(EdgeInsets())
                                 .buttonStyle(PlainButtonStyle())
                         }
                     }

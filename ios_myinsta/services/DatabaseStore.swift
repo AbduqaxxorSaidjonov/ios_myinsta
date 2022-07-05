@@ -12,6 +12,10 @@ class DatabaseStore: ObservableObject{
     var USER_PATH = "users"
     var POST_PATH = "posts"
     var FEED_PATH = "feeds"
+    var FOLLOWING_PATH = "following"
+    var FOLLOWERS_PATH = "followers"
+    
+    
     let store = Firestore.firestore()
     
     func storeUser(user: User){
@@ -149,6 +153,141 @@ class DatabaseStore: ObservableObject{
                 }
                 completion(items)
             }
+        }
+    }
+    
+    // Follow, Un Follow
+    
+    func followUser(me: User, to: User,completion: @escaping (Bool) -> ()) {
+        
+        let paramsMe = ["uid": me.uid, "displayName": me.displayName, "imgUser": me.imgUser]
+        
+        let paramsTo = ["uid": to.uid, "displayName": to.displayName, "imgUser": to.imgUser]
+        
+        do {
+            // I followed to someone
+            try store.collection(USER_PATH).document(me.uid!).collection(FOLLOWING_PATH).document(to.uid!).setData(paramsTo)
+            
+            // I am in someone`s followers
+            try store.collection(USER_PATH).document(to.uid!).collection(FOLLOWERS_PATH).document(me.uid!).setData(paramsMe)
+            
+           self.storePostsToMyFeed(uid: me.uid!, to: to)
+            completion(true)
+        }catch {
+            print("There was an error while trying to follow user \(error.localizedDescription).")
+            completion(false)
+        }
+    }
+    
+    func storePostsToMyFeed(uid: String,to: User){
+        loadPosts(uid: to.uid!){ posts in
+            for post in posts!{
+                self.storeFeed(uid: uid, post: post)
+            }
+        }
+    }
+    
+    func storeFeed(uid: String, post: Post) {
+        
+        let params = [
+            "postId": post.postId,
+            "time": post.time,
+            "caption": post.caption,
+            "imgPost": post.imgPost,
+            "uid": post.uid,
+            "displayName": post.displayName,
+            "imgUser": post.imgUser]
+        
+        if let postId = post.postId{
+            do {
+                try store.collection(USER_PATH).document(uid).collection(FEED_PATH).document(postId).setData(params)
+            }catch {
+                print("There was an error while trying to store feed \(error.localizedDescription).")
+            }
+        }
+    }
+    
+    func removePostsFromMyFeed(uid: String, to: User){
+        loadPosts(uid: to.uid!){ posts in
+            for post in posts! {
+                self.removeFeed(uid: uid, post: post)
+            }
+        }
+    }
+    
+    func removeFeed(uid: String, post: Post) {
+        
+        if let postId = post.postId{
+            do {
+                try store.collection(USER_PATH).document(uid).collection(FEED_PATH).document(postId).delete()
+            }catch {
+                print("There was an error while trying to delete feed \(error.localizedDescription).")
+            }
+        }
+    }
+    
+    func unFollowUser(me: User, to: User,completion: @escaping (Bool) -> ()) {
+        
+        let paramsMe = ["uid": me.uid, "displayName": me.displayName, "imgUser": me.imgUser]
+        
+        let paramsTo = ["uid": to.uid, "displayName": to.displayName, "imgUser": to.imgUser]
+        
+        do {
+            // I un followed to someone
+            try store.collection(USER_PATH).document(me.uid!).collection(FOLLOWING_PATH).document(to.uid!).delete()
+            
+            // I am not in someone`s followers
+            try store.collection(USER_PATH).document(to.uid!).collection(FOLLOWERS_PATH).document(me.uid!).delete()
+            
+            self.removePostsFromMyFeed(uid: me.uid!, to: to)
+            completion(true)
+        }catch {
+            print("There was an error while trying to follow user \(error.localizedDescription).")
+            completion(false)
+        }
+    }
+    
+    func loadFollowing(uid: String,completion: @escaping([User]?) -> ()){
+        var items: [User] = []
+        
+        store.collection(USER_PATH).document(uid).collection(FOLLOWING_PATH).addSnapshotListener{ (querySnapshot , error) in
+            guard let documents = querySnapshot?.documents else{
+                print("No Users")
+                return
+            }
+            
+            documents.compactMap{ document in
+                let uid = document["uid"] as? String ?? ""
+                let email = document["email"] as? String ?? ""
+                let displayName = document["displayName"] as? String ?? ""
+                let imgUser = document["imgUser"] as? String ?? ""
+                let user = User(uid: uid, email: email, displayName: displayName, imgUser: imgUser)
+                
+                items.append(user)
+            }
+            completion(items)
+        }
+    }
+    
+    func loadFollowers(uid: String,completion: @escaping([User]?) -> ()){
+        var items: [User] = []
+        
+        store.collection(USER_PATH).document(uid).collection(FOLLOWERS_PATH).addSnapshotListener{ (querySnapshot , error) in
+            guard let documents = querySnapshot?.documents else{
+                print("No Users")
+                return
+            }
+            
+            documents.compactMap{ document in
+                let uid = document["uid"] as? String ?? ""
+                let email = document["email"] as? String ?? ""
+                let displayName = document["displayName"] as? String ?? ""
+                let imgUser = document["imgUser"] as? String ?? ""
+                let user = User(uid: uid, email: email, displayName: displayName, imgUser: imgUser)
+                
+                items.append(user)
+            }
+            completion(items)
         }
     }
 }

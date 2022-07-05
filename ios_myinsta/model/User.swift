@@ -14,6 +14,7 @@ struct User: Hashable{
     var displayName: String?
     var password: String?
     var imgUser: String?
+    var isFollowed: Bool = false
     
     init(uid: String?,email: String? , displayName: String?){
         self.uid = uid
