@@ -25,6 +25,7 @@ struct HomeFeedScreen: View {
                     }
                 }
                 .listStyle(PlainListStyle())
+                
                 if viewModel.isLoading {
                     ZStack{
                         Color(.systemBackground)

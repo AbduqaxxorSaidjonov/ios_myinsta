@@ -60,11 +60,26 @@ struct FeedPostCell: View {
             
             HStack(spacing: 15){
                 Button {
+                    if post.isLiked!{
+                        post.isLiked = false
+                    }else{
+                        post.isLiked = true
+                    }
+                    viewModel.apiLikePost(uid: uid, post: post)
                     
                 } label: {
-                    Image(systemName: "heart").resizable()
+                    if post.isLiked!{
+                    Image(systemName: "heart.fill").resizable()
                         .frame(width: 26, height: 26)
+                        .foregroundColor(.red)
+                    }
+                    else{
+                    Image(systemName: "heart").resizable()
+                            .frame(width: 26, height: 26)
+                    }
+                    
                 }
+                .buttonStyle(PlainButtonStyle())
                 Button{
                     
                 } label: {

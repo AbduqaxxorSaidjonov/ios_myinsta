@@ -20,4 +20,8 @@ class FeedViewModel: ObservableObject{
             self.isLoading = false
         })
     }
+    
+    func apiLikePost(uid: String,post: Post){
+        DatabaseStore().likeFeedPost(uid: uid, post: post)
+    }
 }
