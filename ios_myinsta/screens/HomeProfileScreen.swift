@@ -104,7 +104,9 @@ struct HomeProfileScreen: View {
                                     .font(.system(size: 15))
                             }
                             .frame(width: UIScreen.width/5, height: UIScreen.height/15)
+                            
                             Divider().frame(maxHeight: UIScreen.height/25)
+                            
                             VStack{
                                 Text(String(viewModel.followers.count))
                                     .foregroundColor(.black)
@@ -115,7 +117,9 @@ struct HomeProfileScreen: View {
                                     .font(.system(size: 15))
                             }
                             .frame(width: UIScreen.width/5, height: UIScreen.height/15)
+                            
                             Divider().frame(maxHeight: UIScreen.height/25)
+                            
                             VStack{
                                 Text(String(viewModel.following.count))
                                     .foregroundColor(.black)

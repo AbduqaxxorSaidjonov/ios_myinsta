@@ -13,6 +13,7 @@ struct LikePostCell: View {
     var uid: String
     var viewModel: LikesViewModel
     @State var post: Post
+    @State var showingAlert = false
     
     var body: some View {
         VStack(spacing: 0){
@@ -44,11 +45,21 @@ struct LikePostCell: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    
-                }, label: {
-                    Image(systemName: "ellipsis")
-                })
+                Button {
+                    self.showingAlert = true
+                } label: {
+                    if post.uid == uid{
+                    Image(systemName: "ellipsis").foregroundColor(.black)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle())
+                .alert(isPresented: $showingAlert){
+                    let title = "Delete"
+                    let message = "Do you want to delete this post?"
+                    return Alert(title: Text(title), message: Text(message), primaryButton: .destructive(Text("Confirm"), action: {
+                        viewModel.apiRemovePost(uid: uid, post: post)
+                    }), secondaryButton: .cancel())
+                }
                 .foregroundColor(.black)
             }
             .padding(.leading,15)
@@ -62,10 +73,21 @@ struct LikePostCell: View {
             
             HStack(spacing: 0){
                 Button(action: {
-                    
+                    if post.isLiked!{
+                        post.isLiked = false
+                    }else{
+                        post.isLiked = true
+                    }
+                    viewModel.apiLikePost(uid: uid, post: post)
                 }, label: {
-                    Image(systemName: "heart").resizable()
-                        .frame(width: 26, height: 26)
+                    if post.isLiked!{
+                        Image(systemName: "heart.fill").resizable()
+                            .frame(width: 26, height: 26)
+                            .foregroundColor(.red)
+                    }else{
+                        Image(systemName: "heart").resizable()
+                            .frame(width: 26, height: 26)
+                    }
                 })
                 Button(action: {
                     

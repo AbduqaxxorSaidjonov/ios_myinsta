@@ -20,6 +20,7 @@ class DatabaseStore: ObservableObject{
         let device_type = "I"
         let device_id = UIDevice.current.identifierForVendor?.uuidString
         let device_token = ""
+        
         let params = ["uid": user.uid, "email": user.email, "displayName": user.displayName, "password": user.password,
                       "device_type": device_type,
                       "device_id": device_id,
@@ -28,22 +29,22 @@ class DatabaseStore: ObservableObject{
         store.collection(USER_PATH).document(user.uid!).setData(params as [String : Any])
     }
     
-    func loadUser(uid: String,completion: @escaping(User?) -> ()){
+    func loadUser(uid: String, completion: @escaping (User?) -> ()) {
         print(uid)
-        store.collection(USER_PATH).document(uid).getDocument(completion: {(document , error) in
-            if let document = document, document.exists{
+        store.collection(USER_PATH).document(uid).getDocument(completion: {(document, error) in
+            if let document = document, document.exists {
                 let docData = document.data()
-                print(docData)
+                // Do something with doc data
                 
                 let uid = docData!["uid"] as? String ?? ""
                 let email = docData!["email"] as? String ?? ""
                 let displayName = docData!["displayName"] as? String ?? ""
                 let imgUser = docData!["imgUser"] as? String ?? ""
-                var user = User(email: email,displayName: displayName,imgUser: imgUser)
+                var user = User(email: email, displayName: displayName, imgUser: imgUser)
                 user.uid = uid
                 completion(user)
-            }else{
-                print("Document doesn't exist")
+            } else {
+                print("Document does not exist")
                 completion(nil)
             }
         })
@@ -163,34 +164,45 @@ class DatabaseStore: ObservableObject{
     }
     // Follow, Un Follow
     
-    func followUser(me: User, to: User, completion: @escaping (Bool) -> ()){
-        let paramsMe = ["uid": me.uid, "displayName" : me.displayName, "imgUser": me.imgUser]
-        let paramsTo = ["uid": to.uid, "displayName" : to.displayName, "imgUser": to.imgUser]
+    func followUser(me: User, to: User,completion: @escaping (Bool) -> ()) {
         
-        do{
+        let paramsMe = ["uid": me.uid, "displayName": me.displayName, "imgUser": me.imgUser]
+        
+        let paramsTo = ["uid": to.uid, "displayName": to.displayName, "imgUser": to.imgUser]
+        
+        do {
+            // I followed to someone
             try store.collection(USER_PATH).document(me.uid!).collection(FOLLOWING_PATH).document(to.uid!).setData(paramsTo)
+            
+            // I am in someone`s followers
             try store.collection(USER_PATH).document(to.uid!).collection(FOLLOWERS_PATH).document(me.uid!).setData(paramsMe)
             
             self.storePostsToMyFeed(uid: me.uid!, to: to)
             completion(true)
-        }catch{
-            print(error.localizedDescription)
+        }catch {
+            print("There was an error while trying to follow user \(error.localizedDescription).")
             completion(false)
         }
     }
     
-    func unFollowUser(me: User, to: User, completion: @escaping (Bool) -> ()){
-        let paramsMe = ["uid": me.uid, "displayName" : me.displayName, "imgUser": me.imgUser]
-        let paramsTo = ["uid": to.uid, "displayName" : to.displayName, "imgUser": to.imgUser]
+    
+    func unFollowUser(me: User, to: User,completion: @escaping (Bool) -> ()) {
         
-        do{
+        let paramsMe = ["uid": me.uid, "displayName": me.displayName, "imgUser": me.imgUser]
+        
+        let paramsTo = ["uid": to.uid, "displayName": to.displayName, "imgUser": to.imgUser]
+        
+        do {
+            // I un followed to someone
             try store.collection(USER_PATH).document(me.uid!).collection(FOLLOWING_PATH).document(to.uid!).delete()
+            
+            // I am not in someone`s followers
             try store.collection(USER_PATH).document(to.uid!).collection(FOLLOWERS_PATH).document(me.uid!).delete()
             
             self.removePostsFromMyFeed(uid: me.uid!, to: to)
             completion(true)
-        }catch{
-            print(error.localizedDescription)
+        }catch {
+            print("There was an error while trying to follow user \(error.localizedDescription).")
             completion(false)
         }
     }
@@ -199,20 +211,20 @@ class DatabaseStore: ObservableObject{
         var items: [User] = []
         
         store.collection(USER_PATH).document(uid).collection(FOLLOWING_PATH).addSnapshotListener{ (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else {
-                print("No users")
-                return
+                guard let documents = querySnapshot?.documents else {
+                    print("No users")
+                    return
+                }
+                documents.compactMap{ document in
+                    let uid = document["uid"] as? String ?? ""
+                    let email = document["email"] as? String ?? ""
+                    let displayName = document["displayName"] as? String ?? ""
+                    let imgUser = document["imgUser"] as? String ?? ""
+                    let user = User(uid: uid, email: email, displayName: displayName, imgUser: imgUser)
+                    items.append(user)
+                }
+                completion(items)
             }
-            documents.compactMap{ document in
-                let uid = document["uid"] as? String ?? ""
-                let email = document["email"] as? String ?? ""
-                let displayName = document["displayName"] as? String ?? ""
-                let imgUser = document["imgUser"] as? String ?? ""
-                let user = User(uid: uid, email: email, displayName: displayName, imgUser: imgUser)
-                items.append(user)
-            }
-            completion(items)
-        }
     }
     
     func loadFollowers(uid: String,completion: @escaping ([User]?) -> ()) {

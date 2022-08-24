@@ -37,9 +37,10 @@ struct HomeLikesScreen: View {
             .navigationBarTitle("likes",displayMode: .inline)
         }
         .onAppear{
-            likesViewModel.apiPostList{
-                print(likesViewModel.items.count)
+            if let uid = session.session?.uid! {
+                self.likesViewModel.apiLikesList(uid: uid)
             }
+    
         }
        
     }

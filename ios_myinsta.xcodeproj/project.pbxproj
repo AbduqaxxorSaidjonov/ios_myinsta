@@ -45,7 +45,7 @@
 		7694D882286C9BA700C1D77B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694D881286C9BA700C1D77B /* Validation.swift */; };
 		76A4FFAA2874A3F2003A76F8 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */; };
 		76A4FFAE2874BCBF003A76F8 /* LikesPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */; };
-		76FC0AF32838D02700C5AA2D /* SeachViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */; };
+		76FC0AF32838D02700C5AA2D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF22838D02700C5AA2D /* SearchViewModel.swift */; };
 		76FC0AF52838D51C00C5AA2D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF42838D51C00C5AA2D /* UserCell.swift */; };
 		76FC0AF728397ACF00C5AA2D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */; };
 		99C1BA1CB472DC3C2459DD54 /* Pods_ios_myinstaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E25D853D4FEB6659639253A /* Pods_ios_myinstaTests.framework */; };
@@ -114,7 +114,7 @@
 		7694D881286C9BA700C1D77B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
 		76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesPostCell.swift; sourceTree = "<group>"; };
-		76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachViewModel.swift; sourceTree = "<group>"; };
+		76FC0AF22838D02700C5AA2D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		76FC0AF42838D51C00C5AA2D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		7DEB38BF93C57D2E674647B4 /* Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig"; path = "Target Support Files/Pods-ios_myinsta-ios_myinstaUITests/Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 			children = (
 				760FDCAE283377F300CD2CA6 /* FeedViewModel.swift */,
 				760FDCB52833846F00CD2CA6 /* LikesViewModel.swift */,
-				76FC0AF22838D02700C5AA2D /* SeachViewModel.swift */,
+				76FC0AF22838D02700C5AA2D /* SearchViewModel.swift */,
 				76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */,
 				763207E12869E49A0077BDCF /* SignInViewModel.swift */,
 				763207E32869E7CB0077BDCF /* SignUpViewModel.swift */,
@@ -581,7 +581,7 @@
 				7688B98D2870D4C5008416DA /* StorageStore.swift in Sources */,
 				76A4FFAE2874BCBF003A76F8 /* LikesPostCell.swift in Sources */,
 				765992B92830DDC500F78570 /* HomeLikesScreen.swift in Sources */,
-				76FC0AF32838D02700C5AA2D /* SeachViewModel.swift in Sources */,
+				76FC0AF32838D02700C5AA2D /* SearchViewModel.swift in Sources */,
 				765992BB2830DDD500F78570 /* HomeProfileScreen.swift in Sources */,
 				760FDCAF283377F300CD2CA6 /* FeedViewModel.swift in Sources */,
 				763207E42869E7CB0077BDCF /* SignUpViewModel.swift in Sources */,

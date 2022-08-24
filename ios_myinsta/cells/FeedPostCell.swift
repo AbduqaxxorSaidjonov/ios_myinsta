@@ -14,7 +14,7 @@ struct FeedPostCell: View {
     var uid: String
     var viewModel: FeedViewModel
     @State var post: Post
-    
+    @State var showingAlert = false
     var body: some View {
         VStack(spacing: 0){
             HStack(spacing: 0){
@@ -45,9 +45,19 @@ struct FeedPostCell: View {
                 Spacer()
                 
                 Button {
-                    
+                    self.showingAlert = true
                 } label: {
+                    if post.uid == uid{
                     Image(systemName: "ellipsis").foregroundColor(.black)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle())
+                .alert(isPresented: $showingAlert){
+                    let title = "Delete"
+                    let message = "Do you want to delete this post?"
+                    return Alert(title: Text(title), message: Text(message), primaryButton: .destructive(Text("Confirm"), action: {
+                        viewModel.apiRemovePost(uid: uid, post: post)
+                    }), secondaryButton: .cancel())
                 }
             }
             .padding(.leading,15)
@@ -77,7 +87,6 @@ struct FeedPostCell: View {
                     Image(systemName: "heart").resizable()
                             .frame(width: 26, height: 26)
                     }
-                    
                 }
                 .buttonStyle(PlainButtonStyle())
                 Button{

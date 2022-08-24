@@ -70,4 +70,8 @@ class ProfileViewModel: ObservableObject{
         })
     }
     
+    func apiRemovePost(uid: String, post: Post){
+        DatabaseStore().removeMyPost(uid: uid, post: post)
+        self.apiPostList(uid: uid)
+    }
 }
