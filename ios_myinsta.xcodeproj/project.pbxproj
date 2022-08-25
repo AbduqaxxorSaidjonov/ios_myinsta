@@ -16,7 +16,6 @@
 		763207E22869E49A0077BDCF /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763207E12869E49A0077BDCF /* SignInViewModel.swift */; };
 		763207E42869E7CB0077BDCF /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763207E32869E7CB0077BDCF /* SignUpViewModel.swift */; };
 		763547EB282A2A950007BA52 /* ios_myinstaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763547EA282A2A950007BA52 /* ios_myinstaApp.swift */; };
-		763547EF282A2A960007BA52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763547EE282A2A960007BA52 /* Assets.xcassets */; };
 		763547F2282A2A960007BA52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763547F1282A2A960007BA52 /* Preview Assets.xcassets */; };
 		763547F4282A2A960007BA52 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763547F3282A2A960007BA52 /* Persistence.swift */; };
 		763547F7282A2A960007BA52 /* ios_myinsta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 763547F5282A2A960007BA52 /* ios_myinsta.xcdatamodeld */; };
@@ -45,6 +44,8 @@
 		7694D882286C9BA700C1D77B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694D881286C9BA700C1D77B /* Validation.swift */; };
 		76A4FFAA2874A3F2003A76F8 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */; };
 		76A4FFAE2874BCBF003A76F8 /* LikesPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */; };
+		76AFBF3D28B7111200760450 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AFBF3C28B7111200760450 /* ProfileScreen.swift */; };
+		76E60D4928B7FBDF00AF580A /* Assets Catalog.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E60D4828B7FBDF00AF580A /* Assets Catalog.xcassets */; };
 		76FC0AF32838D02700C5AA2D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF22838D02700C5AA2D /* SearchViewModel.swift */; };
 		76FC0AF52838D51C00C5AA2D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF42838D51C00C5AA2D /* UserCell.swift */; };
 		76FC0AF728397ACF00C5AA2D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */; };
@@ -81,7 +82,6 @@
 		763207E32869E7CB0077BDCF /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		763547E7282A2A950007BA52 /* Instagram Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instagram Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		763547EA282A2A950007BA52 /* ios_myinstaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_myinstaApp.swift; sourceTree = "<group>"; };
-		763547EE282A2A960007BA52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		763547F1282A2A960007BA52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		763547F3282A2A960007BA52 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		763547F6282A2A960007BA52 /* ios_myinsta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ios_myinsta.xcdatamodel; sourceTree = "<group>"; };
@@ -114,6 +114,8 @@
 		7694D881286C9BA700C1D77B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
 		76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesPostCell.swift; sourceTree = "<group>"; };
+		76AFBF3C28B7111200760450 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		76E60D4828B7FBDF00AF580A /* Assets Catalog.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets Catalog.xcassets"; sourceTree = "<group>"; };
 		76FC0AF22838D02700C5AA2D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		76FC0AF42838D51C00C5AA2D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		76FC0AF628397ACF00C5AA2D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -260,8 +262,8 @@
 			children = (
 				76792EFA282D293C0070FD6E /* Billabong.ttf */,
 				763547F5282A2A960007BA52 /* ios_myinsta.xcdatamodeld */,
-				763547EE282A2A960007BA52 /* Assets.xcassets */,
 				76792EF8282D28DA0070FD6E /* Localizable.strings */,
+				76E60D4828B7FBDF00AF580A /* Assets Catalog.xcassets */,
 			);
 			path = apputils;
 			sourceTree = "<group>";
@@ -288,6 +290,7 @@
 				765992B62830DDB500F78570 /* HomeUploadScreen.swift */,
 				765992B82830DDC500F78570 /* HomeLikesScreen.swift */,
 				765992BA2830DDD500F78570 /* HomeProfileScreen.swift */,
+				76AFBF3C28B7111200760450 /* ProfileScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -436,9 +439,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				761B00FC283BE77B00532A38 /* GoogleService-Info.plist in Resources */,
+				76E60D4928B7FBDF00AF580A /* Assets Catalog.xcassets in Resources */,
 				763547F2282A2A960007BA52 /* Preview Assets.xcassets in Resources */,
 				76792EF6282D28DA0070FD6E /* Localizable.strings in Resources */,
-				763547EF282A2A960007BA52 /* Assets.xcassets in Resources */,
 				76792EFB282D29590070FD6E /* Billabong.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,6 +574,7 @@
 				765992B72830DDB500F78570 /* HomeUploadScreen.swift in Sources */,
 				7688B98B2870C29F008416DA /* DatabaseStore.swift in Sources */,
 				765992B52830DDA400F78570 /* HomeSearchScreen.swift in Sources */,
+				76AFBF3D28B7111200760450 /* ProfileScreen.swift in Sources */,
 				763547F4282A2A960007BA52 /* Persistence.swift in Sources */,
 				763207E22869E49A0077BDCF /* SignInViewModel.swift in Sources */,
 				7635481F282A2AFE0007BA52 /* SignInScreen.swift in Sources */,
@@ -777,9 +781,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-myinsta-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "you can take photos to documents";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "you can take photos to documents";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -810,9 +816,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-myinsta-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "you can take photos to documents";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "you can take photos to documents";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

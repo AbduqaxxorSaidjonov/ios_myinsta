@@ -59,8 +59,8 @@ struct UserCell: View {
                     Text("button_follow")
                         .font(.system(size: 15))
                         .frame(width: UIScreen.width/4, height: 30)
-                        .foregroundColor(.black.opacity(0.5))
-                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray,lineWidth: 1))
+                        .foregroundColor(Color.white)
+                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.blue))
                 }
                
             }

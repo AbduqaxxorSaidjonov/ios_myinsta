@@ -1,18 +1,19 @@
 
 import Foundation
-import UIKit
+import SwiftUI
 
-class ProfileViewModel: ObservableObject{
+class ProfileViewModel: ObservableObject {
     
-    @Published var following: [User] = []
-    @Published var followers: [User] = []
     @Published var isLoading = false
     @Published var items: [Post] = []
+    @Published var following: [User] = []
+    @Published var followers: [User] = []
+    
     @Published var email = ""
     @Published var displayName = ""
     @Published var imgUser = ""
     
-    func apiPostList(uid: String){
+    func apiPostList(uid: String) {
         isLoading = true
         items.removeAll()
         
@@ -20,8 +21,6 @@ class ProfileViewModel: ObservableObject{
             self.items = posts!
             self.isLoading = false
         })
-        
-        isLoading = false
     }
     
     func apiSignOut(){
@@ -38,10 +37,10 @@ class ProfileViewModel: ObservableObject{
         })
     }
     
-    func apiUploadMyImage(uid: String,image: UIImage){
-        self.isLoading = true
-        StorageStore().uploadUserImage(uid: uid, image, completion: {downloadUrl in
-            self.apiUpdateMyImage(uid: uid,imgUser: downloadUrl)
+    func apiUploadMyImage(uid: String, image: UIImage){
+        isLoading = true
+        StorageStore().uploadUserImage(uid: uid, image, completion: { downloadUrl in
+            self.apiUpdateMyImage(uid: uid, imgUser: downloadUrl)
             self.apiLoadUser(uid: uid)
         })
     }
@@ -70,8 +69,8 @@ class ProfileViewModel: ObservableObject{
         })
     }
     
-    func apiRemovePost(uid: String, post: Post){
+    func apiRemovePost(uid: String, post: Post) {
         DatabaseStore().removeMyPost(uid: uid, post: post)
-        self.apiPostList(uid: uid)
+        apiPostList(uid: uid)
     }
 }

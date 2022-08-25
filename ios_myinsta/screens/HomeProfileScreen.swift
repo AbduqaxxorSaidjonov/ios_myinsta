@@ -177,6 +177,7 @@ struct HomeProfileScreen: View {
                         .padding(.top,10)
                         .padding(.bottom,10)
                         .frame(maxWidth: .infinity)
+                        
                         ScrollView{
                             LazyVGrid(columns: columns,spacing: 10){
                                 ForEach(viewModel.items , id: \.self){item in

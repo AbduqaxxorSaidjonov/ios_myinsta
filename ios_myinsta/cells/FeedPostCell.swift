@@ -15,55 +15,65 @@ struct FeedPostCell: View {
     var viewModel: FeedViewModel
     @State var post: Post
     @State var showingAlert = false
+    @State var isTapped = false
+    
     var body: some View {
         VStack(spacing: 0){
-            HStack(spacing: 0){
-                VStack{
-                    if !post.imgPost!.isEmpty{
-                        WebImage(url: URL(string: post.imgUser!))
-                            .resizable()
-                            .clipShape(Circle())
+                HStack(spacing: 0){
+                    VStack{
+                        if !post.imgPost!.isEmpty{
+                            WebImage(url: URL(string: post.imgUser!))
+                                .resizable()
+                                .clipShape(Circle())
+                                .frame(width: 46, height: 46)
+                                .padding(.all,2)
+                        }else{
+                        Image("ic_person").resizable().clipShape(Circle())
                             .frame(width: 46, height: 46)
                             .padding(.all,2)
-                    }else{
-                    Image("ic_person").resizable().clipShape(Circle())
-                        .frame(width: 46, height: 46)
-                        .padding(.all,2)
+                        }
                     }
-                }
-                .overlay(RoundedRectangle(cornerRadius: 25).stroke(Utils.color2,lineWidth: 2))
-                VStack(alignment: .leading, spacing: 3){
-                    Text(post.displayName!).fontWeight(.medium)
-                        .font(.system(size: 17))
-                        .foregroundColor(.black)
+                    .overlay(RoundedRectangle(cornerRadius: 25).stroke(Utils.color2,lineWidth: 2))
                     
-                    Text(post.time!).foregroundColor(.gray)
-                        .font(.system(size: 15))
+                   
+                    VStack(alignment: .leading, spacing: 3){
+                        Text(post.displayName!).fontWeight(.medium)
+                            .font(.system(size: 17))
+                            .foregroundColor(.black)
+                        
+                        Text(post.time!).foregroundColor(.gray)
+                            .font(.system(size: 15))
+                    }
+                    .padding(.leading,15)
+                    .onTapGesture {
+                        self.isTapped = true
+                    }
+                    .sheet(isPresented: $isTapped){
+                        ProfileScreen(uid: post.uid!, user: User())
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        self.showingAlert = true
+                    } label: {
+                        if post.uid == uid{
+                        Image(systemName: "ellipsis").foregroundColor(.black)
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .alert(isPresented: $showingAlert){
+                        let title = "Delete"
+                        let message = "Do you want to delete this post?"
+                        return Alert(title: Text(title), message: Text(message), primaryButton: .destructive(Text("Confirm"), action: {
+                            viewModel.apiRemovePost(uid: uid, post: post)
+                        }), secondaryButton: .cancel())
+                    }
                 }
                 .padding(.leading,15)
-               
-                Spacer()
-                
-                Button {
-                    self.showingAlert = true
-                } label: {
-                    if post.uid == uid{
-                    Image(systemName: "ellipsis").foregroundColor(.black)
-                    }
-                }
-                .buttonStyle(PlainButtonStyle())
-                .alert(isPresented: $showingAlert){
-                    let title = "Delete"
-                    let message = "Do you want to delete this post?"
-                    return Alert(title: Text(title), message: Text(message), primaryButton: .destructive(Text("Confirm"), action: {
-                        viewModel.apiRemovePost(uid: uid, post: post)
-                    }), secondaryButton: .cancel())
-                }
-            }
-            .padding(.leading,15)
-            .padding(.trailing,15)
-            .padding(.top,15)
-            
+                .padding(.trailing,15)
+                .padding(.top,15)
+           
             WebImage(url: URL(string: post.imgPost!))
                 .resizable().scaledToFit()
                 .padding(.top,10)
