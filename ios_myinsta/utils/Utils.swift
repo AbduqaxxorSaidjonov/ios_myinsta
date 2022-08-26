@@ -23,3 +23,18 @@ extension UIScreen{
     static let height = UIScreen.main.bounds.size.height
     static let size = UIScreen.main.bounds.size
 }
+
+struct ShareSheet: UIViewControllerRepresentable{
+    
+    var items: [Any]
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        
+    }
+}

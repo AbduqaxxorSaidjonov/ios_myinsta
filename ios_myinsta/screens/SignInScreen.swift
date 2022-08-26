@@ -29,10 +29,9 @@ struct SignInScreen: View {
                 
                 VStack(spacing: 10){
                     Spacer()
-                    
                     Text("Instagram").foregroundColor(.white)
                         .font(Font.custom("Billabong",size: 45))
-                    
+
                     VStack(alignment: .leading,spacing: 4){
                     ZStack(alignment: .leading){
                         if emailObj.email.isEmpty{
@@ -81,9 +80,9 @@ struct SignInScreen: View {
                             .frame(maxWidth: .infinity,maxHeight: 50)
                             .background(RoundedRectangle(cornerRadius: 8).stroke(lineWidth: 1.5).foregroundColor(.white.opacity(0.4)))
                     })
-                    
+
                     Spacer()
-                    
+
                     HStack{
                         Text("Don't have an account?").foregroundColor(.white)
                         NavigationLink(destination: SignUpScreen(), label: {

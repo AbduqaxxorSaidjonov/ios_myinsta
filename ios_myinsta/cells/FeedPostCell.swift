@@ -16,6 +16,8 @@ struct FeedPostCell: View {
     @State var post: Post
     @State var showingAlert = false
     @State var isTapped = false
+    @State var sheet = false
+    @State var items: [Any] = []
     
     var body: some View {
         VStack(spacing: 0){
@@ -106,10 +108,18 @@ struct FeedPostCell: View {
                         .frame(width: 26, height: 26)
                 }
                 Button{
+                    items.removeAll()
+                    items.append(post.imgPost!)
+                    items.append(post.caption!)
                     
+                    sheet.toggle()
                 }label: {
                     Image(systemName: "paperplane").resizable()
                         .frame(width: 26, height: 26)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .sheet(isPresented: $sheet){
+                    ShareSheet(items: items)
                 }
                 Spacer()
                 Button{

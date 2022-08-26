@@ -42,6 +42,7 @@
 		7688B98B2870C29F008416DA /* DatabaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B98A2870C29F008416DA /* DatabaseStore.swift */; };
 		7688B98D2870D4C5008416DA /* StorageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B98C2870D4C5008416DA /* StorageStore.swift */; };
 		7694D882286C9BA700C1D77B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694D881286C9BA700C1D77B /* Validation.swift */; };
+		76A3E47828B8F9D3009019BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A3E47728B8F9D3009019BA /* LaunchScreen.storyboard */; };
 		76A4FFAA2874A3F2003A76F8 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */; };
 		76A4FFAE2874BCBF003A76F8 /* LikesPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */; };
 		76AFBF3D28B7111200760450 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AFBF3C28B7111200760450 /* ProfileScreen.swift */; };
@@ -112,6 +113,7 @@
 		7688B98A2870C29F008416DA /* DatabaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStore.swift; sourceTree = "<group>"; };
 		7688B98C2870D4C5008416DA /* StorageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStore.swift; sourceTree = "<group>"; };
 		7694D881286C9BA700C1D77B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		76A3E47728B8F9D3009019BA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76A4FFA92874A3F2003A76F8 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
 		76A4FFAD2874BCBF003A76F8 /* LikesPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesPostCell.swift; sourceTree = "<group>"; };
 		76AFBF3C28B7111200760450 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				765992B82830DDC500F78570 /* HomeLikesScreen.swift */,
 				765992BA2830DDD500F78570 /* HomeProfileScreen.swift */,
 				76AFBF3C28B7111200760450 /* ProfileScreen.swift */,
+				76A3E47728B8F9D3009019BA /* LaunchScreen.storyboard */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				761B00FC283BE77B00532A38 /* GoogleService-Info.plist in Resources */,
 				76E60D4928B7FBDF00AF580A /* Assets Catalog.xcassets in Resources */,
 				763547F2282A2A960007BA52 /* Preview Assets.xcassets in Resources */,
+				76A3E47828B8F9D3009019BA /* LaunchScreen.storyboard in Resources */,
 				76792EF6282D28DA0070FD6E /* Localizable.strings in Resources */,
 				76792EFB282D29590070FD6E /* Billabong.ttf in Resources */,
 			);
@@ -777,7 +781,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ios_myinsta/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VTKQQ2B9S4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-myinsta-Info.plist";
@@ -812,7 +816,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ios_myinsta/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VTKQQ2B9S4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-myinsta-Info.plist";
